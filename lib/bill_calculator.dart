@@ -106,6 +106,26 @@ class _BillCalculatorState extends State<BillCalculator> {
                 ],
               ),
             ),
+            const SizedBox(
+              height: 15,
+            ),
+            Text(
+              'How many friends?',
+              style: GoogleFonts.fredokaOne(
+                fontSize: 20,
+                color: Colors.black,
+                fontWeight: FontWeight.w500,
+              ),
+            ),
+            Slider(
+              min: 0,
+              max: 30,
+              divisions: 30,
+              activeColor: Colors.yellow,
+              inactiveColor: Colors.black,
+              value: 12,
+              onChanged: (value) {},
+            ),
           ],
         ),
       ),
