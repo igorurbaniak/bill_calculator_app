@@ -9,7 +9,10 @@ class BillCalculator extends StatefulWidget {
 }
 
 class _BillCalculatorState extends State<BillCalculator> {
-  double friendsvalue = 15.0;
+  double friendsvalue = 0.0;
+  double tip = 0.0;
+  String tax = '0';
+  String bill = '';
 
   buildbutton(String text) {
     return Expanded(
@@ -20,7 +23,21 @@ class _BillCalculatorState extends State<BillCalculator> {
             backgroundColor: Colors.black,
             padding: const EdgeInsets.all(20),
           ),
-          onPressed: () {},
+          onPressed: () {
+            if (text == '-') {
+              setState(
+                () {
+                  bill = '';
+                },
+              );
+            } else {
+              setState(
+                () {
+                  bill += text;
+                },
+              );
+            }
+          },
           child: Text(
             text,
             style: GoogleFonts.fredokaOne(
@@ -93,7 +110,7 @@ class _BillCalculatorState extends State<BillCalculator> {
                             ),
                           ),
                           Text(
-                            '100',
+                            bill,
                             style: GoogleFonts.fredokaOne(
                               color: Colors.white,
                               fontSize: 40,
@@ -123,8 +140,9 @@ class _BillCalculatorState extends State<BillCalculator> {
                             children: [
                               Text(friendsvalue.round().toString(),
                                   style: createdstyle),
-                              Text('23%', style: createdstyle),
-                              Text('10', style: createdstyle),
+                              Text('$tax %', style: createdstyle),
+                              Text('\$${tip.round().toString()}',
+                                  style: createdstyle),
                             ],
                           ),
                         ],
@@ -188,7 +206,13 @@ class _BillCalculatorState extends State<BillCalculator> {
                               height: 40,
                               child: FloatingActionButton(
                                 backgroundColor: Colors.grey[700],
-                                onPressed: () {},
+                                onPressed: () {
+                                  setState(
+                                    () {
+                                      tip--;
+                                    },
+                                  );
+                                },
                                 child: const Icon(
                                   Icons.remove,
                                   color: Colors.white,
@@ -196,7 +220,7 @@ class _BillCalculatorState extends State<BillCalculator> {
                               ),
                             ),
                             Text(
-                              '20',
+                              '\$${tip.round().toString()}',
                               style: GoogleFonts.fredokaOne(
                                 fontSize: 30,
                                 fontWeight: FontWeight.w500,
@@ -207,7 +231,13 @@ class _BillCalculatorState extends State<BillCalculator> {
                               height: 40,
                               child: FloatingActionButton(
                                 backgroundColor: Colors.grey[700],
-                                onPressed: () {},
+                                onPressed: () {
+                                  setState(
+                                    () {
+                                      tip++;
+                                    },
+                                  );
+                                },
                                 child: const Icon(
                                   Icons.add,
                                   color: Colors.white,
@@ -232,6 +262,11 @@ class _BillCalculatorState extends State<BillCalculator> {
                     child: Padding(
                       padding: const EdgeInsets.all(10.0),
                       child: TextField(
+                        onChanged: (value) {
+                          setState(() {
+                            tax = value;
+                          });
+                        },
                         decoration: InputDecoration(
                           focusedBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(32),
@@ -283,7 +318,7 @@ class _BillCalculatorState extends State<BillCalculator> {
                 children: [
                   buildbutton('.'),
                   buildbutton('0'),
-                  buildbutton('-'),
+                  buildbutton('C'),
                 ],
               ),
               const SizedBox(
