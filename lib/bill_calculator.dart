@@ -1,4 +1,6 @@
+import 'package:bill_calculator_app/results.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class BillCalculator extends StatefulWidget {
@@ -191,7 +193,7 @@ class _BillCalculatorState extends State<BillCalculator> {
                         Padding(
                           padding: const EdgeInsets.only(top: 4),
                           child: Text(
-                            'T I P',
+                            'TIP',
                             style: GoogleFonts.fredokaOne(
                               fontSize: 20,
                               fontWeight: FontWeight.w500,
@@ -205,6 +207,7 @@ class _BillCalculatorState extends State<BillCalculator> {
                               width: 40,
                               height: 40,
                               child: FloatingActionButton(
+                                heroTag: '1',
                                 backgroundColor: Colors.grey[700],
                                 onPressed: () {
                                   setState(
@@ -230,6 +233,7 @@ class _BillCalculatorState extends State<BillCalculator> {
                               width: 40,
                               height: 40,
                               child: FloatingActionButton(
+                                heroTag: '2',
                                 backgroundColor: Colors.grey[700],
                                 onPressed: () {
                                   setState(
@@ -262,6 +266,7 @@ class _BillCalculatorState extends State<BillCalculator> {
                     child: Padding(
                       padding: const EdgeInsets.all(10.0),
                       child: TextField(
+                        maxLength: 3,
                         onChanged: (value) {
                           setState(() {
                             tax = value;
@@ -328,7 +333,18 @@ class _BillCalculatorState extends State<BillCalculator> {
                 style: TextButton.styleFrom(
                   backgroundColor: Colors.grey[700],
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => ResultsPage(
+                          bill: bill,
+                          tax: tax,
+                          friends: friendsvalue,
+                          tip: tip),
+                    ),
+                  );
+                },
                 child: Center(
                   child: Text(
                     'Split the Bill',
