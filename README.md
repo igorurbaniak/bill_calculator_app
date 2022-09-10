@@ -1,16 +1,11 @@
-# bill_calculator_app
+Bill Calculator application
 
-A new Flutter project.
+<p float="left">
+<img src="https://user-images.githubusercontent.com/106092123/189489117-c825d5e3-9b23-4355-875c-5c0594aa3246.png" width="300" height="600" />
+<img src="https://user-images.githubusercontent.com/106092123/189489245-3709f0dc-2513-463d-befa-72ede3cc7846.png" width="300" height="600" />
+</p>
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<p float="left">
+<img src="https://user-images.githubusercontent.com/106092123/189489208-37e902d2-ff01-4189-bb2e-fd0561d5d593.png" width="300" height="600" />
+<img src="https://user-images.githubusercontent.com/106092123/189489164-8dd187e0-3d3c-4004-b5e3-940a28cf85ac.png" width="300" height="600" />
+</p>
